@@ -1,0 +1,63 @@
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button 
+    routerLink="/registro"
+    class="btn btn-primary">
+      <i class="fa fa-plus"> Crear</i>
+    </button>
+  </div>
+</div>
+
+<table class="table mt-3 animated fadeIn faster">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Numero identificación</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Empresa</th>      
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of listado | paginate: 
+    {
+    itemsPerPage: cantidadPorPagina,
+    currentPage: p,
+    totalItems: total }; let i = index">   
+    <td>{{i + 1}}</td>   
+    <td>{{usuario.nombre}}</td>
+    <td>{{usuario.apellido}}</td> 
+    <td>{{usuario.numeroIdentificacion}}</td> 
+    <td>{{usuario.correoElectronico}}</td>
+    <td>{{usuario.empresa}}</td>
+         
+      <td>
+        <button class="btn btn-info mr-1"
+        [routerLink]="['/editarCategoria', usuario.id]">
+          <i class="fa fa-pencil"></i>  
+        </button>
+        <button (click)="borrarUsuario(usuario)" class="btn btn-danger mr-1">
+          <i class="fa fa-trash"></i>  
+        </button>
+        <button [routerLink]="['/usuarioDetalle',usuario.id]" class="btn btn-info">
+          <i class="fa fa-eye"></i>  
+        </button>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<div class="form-group">
+  <label>Items por página: </label><hr>
+  <select [(ngModel)]="cantidadPorPagina">
+    <option value="5">5</option>
+    <option value="10">10</option>
+</select>
+</div>
+
