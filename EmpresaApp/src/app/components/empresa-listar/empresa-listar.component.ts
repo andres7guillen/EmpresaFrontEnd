@@ -52,7 +52,7 @@ export class EmpresaListarComponent implements OnInit {
       if(resp.value){
         Swal.fire({title:'',text:'espere por favor...',
                 allowOutsideClick:false});
-      Swal.showLoading();
+      
         this.servicio.eliminar(empresa.id).subscribe(data => {debugger
           Swal.close();
           this.obtenerTodos();         
