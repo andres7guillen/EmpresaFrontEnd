@@ -11,6 +11,7 @@ interface IUsuarioEntidadModel{
     empresaId: string;
     empresa: string;     
     numeroIdentificacion: string;
+    
 }
 
 export class UsuarioEntidadModel implements IUsuarioEntidadModel

@@ -70,6 +70,11 @@ export class AuthService {
     )
   }
 
+  editarUsuario(usuario:UsuarioModel):Observable<any>
+  {
+    return this.http.put(this.urlUsuario + 'actualizar', JSON.stringify(usuario),{headers:this.headers});
+  }
+
   borrarUsuario(id:string):Observable<any>
   {
     return this.http.delete(this.urlUsuario + 'eliminar?id=' + id,{headers:this.headers});

@@ -10,12 +10,13 @@ import { UsuarioEntidadModel } from 'src/app/models/usuarioEntidadModel';
 })
 export class UsuarioDetalleComponent implements OnInit {
   id:string;
-  usuario: UsuarioEntidadModel = new UsuarioEntidadModel();
+  usuario: UsuarioEntidadModel;
 
   constructor(private servicio:AuthService,
               private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.usuario = new UsuarioEntidadModel();
     this.id = this.route.snapshot.paramMap.get('id');
     this.obtenerPorId();
   }

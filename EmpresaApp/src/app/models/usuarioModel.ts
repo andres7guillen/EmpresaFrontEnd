@@ -12,6 +12,7 @@ interface IUsuarioModel{
     empresa: empresaModel;    
     password: string;
     numeroIdentificacion: string;
+    email: string;
 }
 
 export class UsuarioModel implements IUsuarioModel
@@ -26,4 +27,5 @@ export class UsuarioModel implements IUsuarioModel
     empresa: empresaModel;    
     password: string;
     numeroIdentificacion: string;
+    email:string;
 }

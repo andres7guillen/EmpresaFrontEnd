@@ -25,6 +25,16 @@ export class EmpresaService {
     return this.http.get(this.url + 'obtenerTodos',{headers:this.headers})
   }
 
+  obtenerPorId(id:string):Observable<any>
+  {
+    return this.http.get(this.url + 'obtenerPorId?id=' + id,{headers:this.headers});
+  }
+
+  eliminar(id:string):Observable<any>
+  {
+    return this.http.delete(this.url + 'eliminar?id=' + id,{headers:this.headers})
+  }
+
 
 
 }

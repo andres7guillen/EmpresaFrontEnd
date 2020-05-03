@@ -10,4 +10,5 @@ export class empresaModel implements IEmpresaModel {
     id: string;
     razonSocial: string;
     nit: string;    
+    
 }

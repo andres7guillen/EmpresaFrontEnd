@@ -41,7 +41,7 @@ export class UsuarioListarComponent implements OnInit {
   }
 
   borrarUsuario(usuario:UsuarioEntidadModel)
-  {debugger
+  {
     Swal.fire({
       title: 'Esta seguro?',
       text: 'Esta seguro que desea eliminar a: ' + usuario.nombre + ' ' + usuario.apellido + ' ?',
@@ -51,6 +51,7 @@ export class UsuarioListarComponent implements OnInit {
     }).then(resp => {
       if(resp.value){
         this.servicio.borrarUsuario(usuario.id).subscribe(data => {
+          this.listado = [];
           if(data != undefined){
             Swal.fire({
               title: 'Correcto!!',
@@ -69,15 +70,7 @@ export class UsuarioListarComponent implements OnInit {
                 text: error.error,
                 allowOutsideClick: false
               })
-            })
-
-            Swal.fire({
-              title: 'Correcto',
-              text: 'Usuario:  ' + usuario.nombre + ' borrado correctamente',
-              allowOutsideClick: false
-            });
-            
-          }
+            })}
         },(error) => {
           
         })

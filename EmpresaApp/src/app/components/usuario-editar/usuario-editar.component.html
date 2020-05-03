@@ -1,1 +1,93 @@
-<p>usuario-editar works!</p>
+
+<div class="container">
+    <div class="row text-right" style="margin-top: 4px;">
+        <div class="col">
+            <button 
+        routerLink="/usuarioListar"
+        class="btn btn-danger">
+            <i class="fa fa-arrow-left"> Regresar</i>
+        </button>
+        </div>  
+        </div><br>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form (ngSubmit)="onSubmit(formulario)" #formulario="ngForm"
+            class="login100-form validate-form flex-sb flex-w">
+
+                <span class="login100-form-title p-b-51">
+                    Editar usuario
+                </span>
+
+                <span *ngIf="formulario.submitted && formulario.controls['nombre'].errors" class="text-danger animated fadeIn">El nombre es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" 
+                           type="text" 
+                           name="nombre" 
+                           [(ngModel)]="usuario.nombre"
+                           placeholder="Nombre"                           
+                           required>
+
+                    <span class="focus-input100"></span>
+                </div> 
+
+
+                <span *ngIf="formulario.submitted && formulario.controls['apellido'].errors" class="text-danger animated fadeIn">El apellido es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" 
+                           type="text" 
+                           name="apellido" 
+                           [(ngModel)]="usuario.apellido"
+                           placeholder="Apellido"                           
+                           required>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="formulario.submitted && formulario.controls['tipoId'].errors" class="text-danger animated fadeIn">El tipo es obligatorio</span>
+                <label>Tipo identificación:</label><hr>
+                <div class="wrap-input100 m-b-16">                    
+                    <select class="input100" name="empresa" required [(ngModel)]="usuario.tipoIdentificacionId" name="tipoId">
+                        <option *ngFor="let tipo of listadoTipos" [value]="tipo.id">{{tipo.descripcion}}</option>
+                      </select>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="formulario.submitted && formulario.controls['numeroIdentificacion'].errors" class="text-danger animated fadeIn">El correo es obligatorio</span>
+                <label>Número de identificación:</label><hr>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" 
+                           type="text" 
+                           name="numeroIdentificacion" 
+                           [(ngModel)]="usuario.numeroIdentificacion"
+                           placeholder="Número identificación"
+                           required>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+
+
+                <span *ngIf="formulario.submitted && formulario.controls['empresaId'].errors" class="text-danger animated fadeIn">La empresa es obligatoria</span>
+                <label>Empresa:</label><hr>
+                <div class="wrap-input100 m-b-16">                    
+                    <select class="input100" name="empresa" required [(ngModel)]="usuario.empresaId" name="empresaId">
+                        <option *ngFor="let empresa of listadoEmpresas" [value]="empresa.id">{{empresa.razonSocial}}</option>
+                      </select>
+
+                    <span class="focus-input100"></span>
+                </div>                 
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" type="submit">
+                        Editar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>

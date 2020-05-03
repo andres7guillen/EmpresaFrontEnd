@@ -10,6 +10,7 @@ import { EmpresaEditarComponent } from './components/empresa-editar/empresa-edit
 import { UsuarioListarComponent } from './components/usuario-listar/usuario-listar.component';
 import { EmpresaListarComponent } from './components/empresa-listar/empresa-listar.component';
 import { UsuarioDetalleComponent } from './components/usuario-detalle/usuario-detalle.component';
+import { UsuarioEditarComponent } from './components/usuario-editar/usuario-editar.component';
 
 
 const ROUTES: Routes = 
@@ -17,12 +18,13 @@ const ROUTES: Routes =
   { path:'home', component: HomeComponent, canActivate:[ AuthGuard ]},
   { path:'registro', component: RegistroComponent},
   { path:'login', component: LoginComponent},  
-  { path:'empresaCrear', component: EmpresaCrearComponent, canActivate:[AuthGuard]},
+  { path:'empresaCrear', component: EmpresaCrearComponent},
   { path:'empresaDetalle/:id', component: EmpresaDetalleComponent, canActivate:[AuthGuard]},
-  { path:'empresaListar', component:EmpresaListarComponent, canActivate:[AuthGuard] },
+  { path:'empresaListar', component:EmpresaListarComponent },
   { path:'empresaEditar/:id', component: EmpresaEditarComponent, canActivate:[AuthGuard] },
-  { path:'usuarioListar', component: UsuarioListarComponent, canActivate:[AuthGuard] },
+  { path:'usuarioListar', component: UsuarioListarComponent },
   { path:'usuarioDetalle/:id', component:UsuarioDetalleComponent, canActivate:[AuthGuard] },
+  { path:'usuarioEditar/:id', component: UsuarioEditarComponent, canActivate:[AuthGuard] },
   { path: '**', redirectTo: 'registro' }
 ];
 
