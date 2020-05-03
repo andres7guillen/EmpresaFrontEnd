@@ -1,1 +1,1 @@
-# EmpresaFrontEnd
+Front End hecho con angular 8, para ejecutar este proyecto primero se abre el CMD, o la terminal de visual studio Code, se deja apuntando a la carpeta del front(LibraryFrontEnd) y se ejecuta el comando "npm Install", este comando instalara todas las dependencias del proyecto alojadas en el Package.json, ya una vez ejecutado, se corren los proyectos y ya se pueden usar.
